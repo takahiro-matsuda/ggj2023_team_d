@@ -1,15 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NokogiriMan : MonoBehaviour
 {
     public Animator animator;  // アニメーターコンポーネント取得用
-
+    public Image sliderimage;
+    public Slider slider;
+    float nowGauge;
+    float maxGauge;
+    float minGauge;
+    bool maxfloat;
     // Start is called before the first frame update
     void Start()
     {
+        nowGauge = 0;
+        maxGauge = 1;
+        minGauge = 0;
+        slider.maxValue = maxGauge;
         
+        slider.minValue = minGauge;
     }
 
     // Update is called once per frame
@@ -46,6 +57,25 @@ public class NokogiriMan : MonoBehaviour
             }
 
             // SE再生（ノコギリをひく）
+        }
+        slider.value = nowGauge;
+        sliderimage.color = new Color(nowGauge, 1 - nowGauge, 0, 1);
+        //nowGauge += Time.deltaTime/2;
+        if (!maxfloat)
+        {
+            nowGauge += Time.deltaTime;
+        }
+        else
+        {
+            nowGauge -= Time.deltaTime;
+        }
+        if (nowGauge >= maxGauge)
+        {
+            maxfloat = true;
+        }
+        else if (nowGauge <= minGauge)
+        {
+            maxfloat = false;
         }
     }
 }

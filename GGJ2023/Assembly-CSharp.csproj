@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scenes\Script\TitleScene.cs" />
     <Compile Include="Assets\Scenes\Script\ResultScene.cs" />
     <Compile Include="Assets\Scenes\Script\BadEndScene.cs" />
+    <Compile Include="Assets\Scripts\NokogiriMan.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
