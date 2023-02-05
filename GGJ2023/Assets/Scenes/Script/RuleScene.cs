@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleScene : MonoBehaviour
+public class RuleScene : MonoBehaviour
 {
-    public AudioSource pushStartSE;
-
     // 開始
     void Start()
     {
@@ -18,14 +16,7 @@ public class TitleScene : MonoBehaviour
         // スペースキーが押されたらSE再生
         if (Input.GetKey(KeyCode.Space))
         {
-            pushStartSE.Play();
-
-            Invoke("changeScene", 1.0f);
+            SceneManager.LoadScene("MainScene");
         }
-    }
-
-    // シーン遷移処理
-    private void changeScene() {
-        SceneManager.LoadScene("Rule");
     }
 }
