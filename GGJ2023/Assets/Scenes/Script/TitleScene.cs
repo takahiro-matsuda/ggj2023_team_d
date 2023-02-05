@@ -5,18 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class TitleScene : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioSource pushStartSE;
+
+    // 開始
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
+    // 更新
     void Update()
     {
+        // スペースキーが押されたらSE再生
         if (Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene("MainScene");
+            pushStartSE.Play();
+
+            Invoke("changeScene", 1.0f);
         }
+    }
+
+    // シーン遷移処理
+    private void changeScene() {
+        SceneManager.LoadScene("MainScene");
     }
 }
