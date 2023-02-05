@@ -22,6 +22,14 @@ public class TitleScene : MonoBehaviour
 
             Invoke("changeScene", 1.0f);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了
+#else
+    Application.Quit();//ゲームプレイ終了
+#endif
+        }
     }
 
     // シーン遷移処理
