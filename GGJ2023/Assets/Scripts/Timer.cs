@@ -30,7 +30,7 @@ public class Timer : MonoBehaviour
         // テキストに反映
         string text = "残り時間：" + seconds.ToString() + "秒";
 		timerText.text = text;
-        Debug.Log (text);
+        // Debug.Log (text);
         
         // タイマー終了
         if (seconds == 0) {
