@@ -42,15 +42,15 @@ ModelImporter:
       name: success
       takeName: Take 001
       internalID: 0
-      firstFrame: 179
-      lastFrame: 224
+      firstFrame: 180
+      lastFrame: 240
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -72,14 +72,14 @@ ModelImporter:
       takeName: Take 001
       internalID: 0
       firstFrame: 240
-      lastFrame: 340
+      lastFrame: 330
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
