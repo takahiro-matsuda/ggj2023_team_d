@@ -18,7 +18,7 @@ public class MainScene : MonoBehaviour
 
         // 制限時間を決める
         System.Random rnd = new System.Random();
-        int time = rnd.Next(5, 10);//5から10（仮）
+        int time = rnd.Next(60, 60);//5から10（仮）
 
         // タイマー時間を設定
         timer.set(time);
@@ -35,32 +35,48 @@ public class MainScene : MonoBehaviour
     }
 
     // タイムアップ処理
-    void onTimeup() {
+    public void onTimeup() {
         Debug.Log ("time up");
+        if(sawmanscript.cutTree == sawmanscript.norm)
+        {
+            HappyEndScene();
+        }
+        else if(sawmanscript.cutTree < sawmanscript.norm)
+        {
+            NoNormEndScene();
+        }
+        else if(sawmanscript.cutTree > sawmanscript.norm && sawmanscript.cutTree < sawmanscript.norm * 2)
+        {
+            NormOverEndScene();
+        }
+        if(sawmanscript.cutTree > sawmanscript.norm * 2)
+        {
+            BadEndScene();
+        }
     }
 
     public void BadEndScene()
     {
-
+        SceneManager.LoadScene("BadEndScene");
     }
 
     public void NormOverEndScene()
     {
-
+        SceneManager.LoadScene("NormOverEnd");
     }
 
     public void HappyEndScene()
     {
-
+        SceneManager.LoadScene("NormClearEnd");
     }
 
     public void NoNormEndScene()
     {
-
+        SceneManager.LoadScene("NoNormEnd");
     }
 
     public void BreakSawEndScene()
     {
-
+        SceneManager.LoadScene("SawBreakEnd");
     }
 }

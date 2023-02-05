@@ -615,11 +615,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852db9ac6f5f7453988e05d45e015437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 234598288}
   sliderimage: {fileID: 1759753219}
   slider: {fileID: 1526706514}
-  gaugespeed: 0
   sawmanAnim: {fileID: 595572549}
-  movetimer: 0
   sawLife: 0
   textStyle:
     m_Name: 
@@ -676,7 +675,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 18
+    m_FontSize: 30
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 0
@@ -688,6 +687,10 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  norm: 0
+  cutTree: 0
+  bg: {fileID: 1901340623}
+  i: 0
 --- !u!1 &597519529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,3 +1588,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bg1: {fileID: 1534701045}
   bg2: {fileID: 1132439903}
+  value: 0
+  sawman: {fileID: 595572548}

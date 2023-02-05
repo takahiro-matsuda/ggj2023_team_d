@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class NokogiriMan : MonoBehaviour
 {
-    GameObject canvas;
+    public GameObject canvas;
     MainScene mainsceneCs;
 
     //public Animator animator;  // アニメーターコンポーネント取得用
@@ -33,7 +33,7 @@ public class NokogiriMan : MonoBehaviour
     bool gauge = true;
 
     //ゲージの動くスピード
-    public float gaugespeed;
+    float gaugespeed;
 
     //キャラを動かすための指定
     Vector3 pos;
@@ -41,7 +41,7 @@ public class NokogiriMan : MonoBehaviour
     //キャラのアニメーター
     public Animator sawmanAnim;
     //キャラのアニメーション終了の判定を取るためのタイマー
-    public float movetimer;
+    float movetimer;
 
     //動ける状態かそうでないかの判定
     bool moving = true;
@@ -50,10 +50,22 @@ public class NokogiriMan : MonoBehaviour
     public int sawLife;
 
     public GUIStyle textStyle;
+
+    public int norm;
+
+    public int cutTree;
+
+    public static int cutScore;
+
+    public GameObject bg;
+
+    BackGroundManager bgmana;
+
+    public int i;
     // Start is called before the first frame update
     private void OnGUI()
     {
-        GUI.Label(new Rect(50, 50, 200, 50), "残りライフ：" + sawLife, textStyle);
+        GUI.Label(new Rect(500, 0, 200, 50), "今回のノルマ:" + norm, textStyle);
     }
     void Start()
     {
@@ -72,12 +84,15 @@ public class NokogiriMan : MonoBehaviour
         pos.z = -4;
         sawLife = 3;
         gaugespeed = Random.Range(3.0f, 4.0f);
-        //mainsceneCs = canvas.GetComponent<MainScene>();
+        norm = Random.Range(5, 16);
+        mainsceneCs = canvas.GetComponent<MainScene>();
+        bgmana = bg.GetComponent<BackGroundManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        cutScore = cutTree;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Time.timeScale != 0) {
@@ -88,6 +103,10 @@ public class NokogiriMan : MonoBehaviour
                 Time.timeScale = 1;
                 gaugespeed = Random.Range(3.0f, 4.0f);
             }
+        }
+        if(Time.timeScale == 0 && Input.GetKeyDown(KeyCode.Space))
+        {
+            mainsceneCs.onTimeup();
         }
         //走っている状態ならば
         if (moving)
@@ -113,6 +132,8 @@ public class NokogiriMan : MonoBehaviour
                 {
                     Debug.Log("成功");
                     sawmanAnim.SetTrigger("Success");
+                    cutTree++;
+                    bgmana.Invoke("SuccessBG",1.6f);
                 }
                 //失敗判定、ライフを一つ失う
                 else if (nowGauge < randomfloatmin)
@@ -126,6 +147,9 @@ public class NokogiriMan : MonoBehaviour
                 {
                     Debug.Log("切りすぎ");
                     sawmanAnim.SetTrigger("NotSuccess");
+                    i = Random.Range(2, 5);
+                    cutTree += i;
+                    bgmana.Invoke("NotSuccessBG", 1.6f);
                 }
             }
         }
@@ -211,13 +235,14 @@ public class NokogiriMan : MonoBehaviour
         //新たにゲージの成功範囲を指定
         randomfloatmin = Random.Range(30, 50);
         randomfloatmax = Random.Range(60, 80);
+        
         //現在のゲージ量を0に戻す
         nowGauge = 0;
         //ゲージを動かせるようにする
         gauge = true;
         if(sawLife <= 0)
         {
-            //mainsceneCs.BreakSawEndScene();
+            mainsceneCs.BreakSawEndScene();
         }
     }
 }

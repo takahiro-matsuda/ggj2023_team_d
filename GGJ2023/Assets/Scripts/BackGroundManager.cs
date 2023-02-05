@@ -6,20 +6,25 @@ public class BackGroundManager : MonoBehaviour
 {
     public BackGround bg1;
     public BackGround bg2;
-    int value = 0;
-
+    public int value = 0;
+    public GameObject sawman;
+    NokogiriMan sawmanCs;
+    int bgChange;
     // 開始処理
     void Start()
     {
         // 初期状態設定
         bg1.setAlpha((byte)255);
         bg2.setAlpha((byte)255);
+        sawmanCs = sawman.GetComponent<NokogiriMan>();
+        bgChange = 31 / sawmanCs.norm;
     }
 
     // 更新処理
     void Update()
     {
-         if (Input.GetKeyDown(KeyCode.LeftArrow))
+        
+         /*if (Input.GetKeyDown(KeyCode.LeftArrow))
          {
              value = value + 1;
             if (value > 31) {
@@ -27,7 +32,7 @@ public class BackGroundManager : MonoBehaviour
              }
 
              setValue(value);
-         }
+         }*/
     }
 
     // 背景値を設定（0〜31指定）
@@ -43,5 +48,24 @@ public class BackGroundManager : MonoBehaviour
 
         bg1.setAlpha((byte)bg1Alpha);
         // bg2.setAlpha((byte)bg2Alpha);
+    }
+
+    public void SuccessBG()
+    {
+        value += bgChange / 2;
+        if (value > 31)
+        {
+            value = 31;
+        }
+        setValue(value);
+    }
+    public void NotSuccessBG()
+    {
+        value += bgChange * sawmanCs.i / 2;
+        if (value > 31)
+        {
+            value = 31;
+        }
+        setValue(value);
     }
 }
