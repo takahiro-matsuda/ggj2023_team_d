@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainScene : MonoBehaviour
 {
     public Timer timer;
-
+    GameObject sawman;
+    NokogiriMan sawmanscript;
     // 開始処理
     void Start()
     {
@@ -21,6 +24,9 @@ public class MainScene : MonoBehaviour
         timer.set(time);
         // タイマー開始
         timer.timerStart();
+
+        sawman = GameObject.Find("SawMan");
+        sawmanscript = sawman.GetComponent<NokogiriMan>();
     }
 
     // 更新処理
@@ -31,5 +37,30 @@ public class MainScene : MonoBehaviour
     // タイムアップ処理
     void onTimeup() {
         Debug.Log ("time up");
+    }
+
+    public void BadEndScene()
+    {
+
+    }
+
+    public void NormOverEndScene()
+    {
+
+    }
+
+    public void HappyEndScene()
+    {
+
+    }
+
+    public void NoNormEndScene()
+    {
+
+    }
+
+    public void BreakSawEndScene()
+    {
+
     }
 }
