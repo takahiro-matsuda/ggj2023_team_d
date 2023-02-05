@@ -245,4 +245,9 @@ public class NokogiriMan : MonoBehaviour
             mainsceneCs.BreakSawEndScene();
         }
     }
+
+    public static int getScore()
+    {
+        return cutScore;
+    }
 }

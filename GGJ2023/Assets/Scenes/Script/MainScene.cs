@@ -34,21 +34,25 @@ public class MainScene : MonoBehaviour
     {
     }
 
-    // タイムアップ処理
+    // ゲーム終了
     public void onTimeup() {
-        Debug.Log ("time up");
+        //Debug.Log ("time up");
+        //切った数がノルマと同じならNormClearEndに飛ばす
         if(sawmanscript.cutTree == sawmanscript.norm)
         {
             HappyEndScene();
         }
+        //切った数がノルマより少ないならNoNormEndに飛ばす
         else if(sawmanscript.cutTree < sawmanscript.norm)
         {
             NoNormEndScene();
         }
+        //切った数がノルマより多く、ノルマの二倍の数より少ないならNormOverEndに飛ばす
         else if(sawmanscript.cutTree > sawmanscript.norm && sawmanscript.cutTree < sawmanscript.norm * 2)
         {
             NormOverEndScene();
         }
+        //切った数がノルマの二倍以上ならBadEndに飛ばす
         if(sawmanscript.cutTree > sawmanscript.norm * 2)
         {
             BadEndScene();

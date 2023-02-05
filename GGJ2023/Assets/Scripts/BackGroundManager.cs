@@ -50,6 +50,7 @@ public class BackGroundManager : MonoBehaviour
         // bg2.setAlpha((byte)bg2Alpha);
     }
 
+    //成功した際の判定
     public void SuccessBG()
     {
         value += bgChange / 2;
@@ -59,6 +60,7 @@ public class BackGroundManager : MonoBehaviour
         }
         setValue(value);
     }
+    //失敗した際の判定
     public void NotSuccessBG()
     {
         value += bgChange * sawmanCs.i / 2;
