@@ -58,16 +58,16 @@
   <ItemGroup>
     <Compile Include="Assets\Scenes\Script\BadEndScene.cs" />
     <Compile Include="Assets\Scenes\Script\ResultScene.cs" />
-    <Compile Include="Assets\Scenes\Script\NormOverEnd.cs" />
     <Compile Include="Assets\Scenes\Script\TitleScene.cs" />
-    <Compile Include="Assets\Scenes\Script\NoNormEnd.cs" />
-    <Compile Include="Assets\Scripts\BackGroundManager.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
-    <Compile Include="Assets\Scripts\BackGround.cs" />
-    <Compile Include="Assets\Scenes\Script\SawBreakEnd.cs" />
     <Compile Include="Assets\Scenes\Script\MainScene.cs" />
     <Compile Include="Assets\Scripts\NokogiriMan.cs" />
+    <Compile Include="Assets\Scripts\BackGround.cs" />
+    <Compile Include="Assets\Scripts\BackGroundManager.cs" />
+    <Compile Include="Assets\Scenes\Script\NoNormEnd.cs" />
     <Compile Include="Assets\Scenes\Script\NormClearEnd.cs" />
+    <Compile Include="Assets\Scenes\Script\NormOverEnd.cs" />
+    <Compile Include="Assets\Scenes\Script\SawBreakEnd.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -640,35 +640,44 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core.Analytics">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core.Environments">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.Timeline.Player.csproj">
+      <Project>{A7FE5A10-A007-F37E-F848-208246C51843}</Project>
+      <Name>Unity.Timeline.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.Player.csproj">
+      <Project>{80A9A042-C5D6-B498-5856-3FC3CAEBDF95}</Project>
+      <Name>Unity.TextMeshPro.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Flow.Player.csproj">
+      <Project>{EB3FDB6B-870F-DD8C-CE68-1C0E888C98BD}</Project>
+      <Name>Unity.VisualScripting.Flow.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.Player.csproj">
+      <Project>{7FA58695-51C6-6990-94EA-9AB9685EB850}</Project>
+      <Name>UnityEngine.UI.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.Player.csproj">
+      <Project>{7AFF5865-C07A-0294-3796-B2207F54FD36}</Project>
+      <Name>Unity.Services.Core.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Core.Player.csproj">
+      <Project>{688775F6-F56D-2501-56A4-8FB8EC13FFBC}</Project>
+      <Name>Unity.VisualScripting.Core.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.Analytics.Player.csproj">
+      <Project>{00615F45-88C2-1F61-417A-CB8F815C2C06}</Project>
+      <Name>Unity.Services.Core.Analytics.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.Environments.Player.csproj">
+      <Project>{3E97FF0C-5E8F-55B4-6BA9-13FAE4471BCD}</Project>
+      <Name>Unity.Services.Core.Environments.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.State.Player.csproj">
+      <Project>{EDA341D0-00DD-FEF4-53FC-F50918A3DDD1}</Project>
+      <Name>Unity.VisualScripting.State.Player</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
