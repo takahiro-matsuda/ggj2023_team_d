@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NormOverEnd : MonoBehaviour
 {
     public AudioSource se1;
     public AudioSource se2;
-
+    public Text resultText;
+    int result;
     // 開始
     void Start()
     {
+        result = NokogiriMan.getScore();
+        resultText.text = result.ToString();
         Invoke("playSe1", 2.0f);
         Invoke("playSe2", 6.0f);
     }

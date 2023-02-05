@@ -62,6 +62,16 @@ public class NokogiriMan : MonoBehaviour
     BackGroundManager bgmana;
 
     public int i;
+
+    public AudioSource oneCutTree;
+
+    public AudioSource manyCutTree;
+
+    public AudioSource missCutTree;
+
+    public AudioSource clickGauge;
+
+    public AudioSource run;
     // Start is called before the first frame update
     private void OnGUI()
     {
@@ -87,6 +97,8 @@ public class NokogiriMan : MonoBehaviour
         norm = Random.Range(5, 16);
         mainsceneCs = canvas.GetComponent<MainScene>();
         bgmana = bg.GetComponent<BackGroundManager>();
+        run.Play();
+        cutScore = 0;
     }
 
     // Update is called once per frame
@@ -106,6 +118,7 @@ public class NokogiriMan : MonoBehaviour
         }
         if(Time.timeScale == 0 && Input.GetKeyDown(KeyCode.Space))
         {
+            Time.timeScale = 1;
             mainsceneCs.onTimeup();
         }
         //走っている状態ならば
@@ -120,6 +133,7 @@ public class NokogiriMan : MonoBehaviour
             {
                 //動きを止める
                 moving = false;
+                run.Stop();
                 //ゲージが押されてなかったら
                 if (gauge)
                 {
@@ -134,6 +148,7 @@ public class NokogiriMan : MonoBehaviour
                     sawmanAnim.SetTrigger("Success");
                     cutTree++;
                     bgmana.Invoke("SuccessBG",1.6f);
+                    Invoke("OneCutTree", 0.8f);
                 }
                 //失敗判定、ライフを一つ失う
                 else if (nowGauge < randomfloatmin)
@@ -141,6 +156,7 @@ public class NokogiriMan : MonoBehaviour
                     Debug.Log("失敗");
                     sawmanAnim.SetTrigger("Miss");
                     sawLife--;
+                    Invoke("MissCutTree", 0.1f);
                 }
                 //切りすぎの判定
                 else if (nowGauge > randomfloatmax)
@@ -150,6 +166,7 @@ public class NokogiriMan : MonoBehaviour
                     i = Random.Range(2, 5);
                     cutTree += i;
                     bgmana.Invoke("NotSuccessBG", 1.6f);
+                    Invoke("ManyCutTree", 0.5f);
                 }
             }
         }
@@ -180,6 +197,7 @@ public class NokogiriMan : MonoBehaviour
             if (Time.timeScale != 0 && Input.GetKeyDown(KeyCode.Space))
             {
                 gauge = false;
+                clickGauge.Play();
             }
         }
     }
@@ -240,6 +258,9 @@ public class NokogiriMan : MonoBehaviour
         nowGauge = 0;
         //ゲージを動かせるようにする
         gauge = true;
+        manyCutTree.Stop();
+        missCutTree.Stop();
+        run.Play();
         if(sawLife <= 0)
         {
             mainsceneCs.BreakSawEndScene();
@@ -249,5 +270,17 @@ public class NokogiriMan : MonoBehaviour
     public static int getScore()
     {
         return cutScore;
+    }
+    void OneCutTree()
+    {
+        oneCutTree.Play();
+    }
+    void ManyCutTree()
+    {
+        manyCutTree.Play();
+    }
+    void MissCutTree()
+    {
+        missCutTree.Play();
     }
 }
