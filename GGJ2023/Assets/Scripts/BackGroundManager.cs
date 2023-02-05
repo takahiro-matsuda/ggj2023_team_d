@@ -42,7 +42,7 @@ public class BackGroundManager : MonoBehaviour
         float bg2Alpha = (float)value / 31 * 255;
         float bg1Alpha = 255 - bg2Alpha;
 
-        Debug.Log("value = " + value);
+        // Debug.Log("value = " + value);
         // Debug.Log("bg1Alpha = " + bg1Alpha);
         // Debug.Log("bg2Alpha = " + bg2Alpha);
 
