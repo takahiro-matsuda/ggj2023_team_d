@@ -75,6 +75,10 @@ public class NokogiriMan : MonoBehaviour
 
     public Life life;
 
+    public GameObject wood;
+
+    Wood woodCs;
+
     // Start is called before the first frame update
     private void OnGUI()
     {
@@ -100,6 +104,7 @@ public class NokogiriMan : MonoBehaviour
         norm = Random.Range(5, 16);
         mainsceneCs = canvas.GetComponent<MainScene>();
         bgmana = bg.GetComponent<BackGroundManager>();
+        woodCs = wood.GetComponent<Wood>();
         run.Play();
         cutScore = 0;
     }
@@ -152,6 +157,7 @@ public class NokogiriMan : MonoBehaviour
                     cutTree++;
                     bgmana.Invoke("SuccessBG",1.6f);
                     Invoke("OneCutTree", 0.8f);
+                    woodCs.Invoke("CutWood", 1.0f);
                 }
                 //失敗判定、ライフを一つ失う
                 else if (nowGauge < randomfloatmin)
@@ -171,6 +177,7 @@ public class NokogiriMan : MonoBehaviour
                     cutTree += i;
                     bgmana.Invoke("NotSuccessBG", 1.6f);
                     Invoke("ManyCutTree", 0.5f);
+                    woodCs.Invoke("CutWood", 0.8f);
                 }
             }
         }
@@ -265,6 +272,7 @@ public class NokogiriMan : MonoBehaviour
         manyCutTree.Stop();
         missCutTree.Stop();
         run.Play();
+
         if(sawLife <= 0)
         {
             mainsceneCs.BreakSawEndScene();

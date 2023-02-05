@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scenes\Script\SawBreakEnd.cs" />
     <Compile Include="Assets\Scenes\Script\RuleScene.cs" />
     <Compile Include="Assets\Scripts\Life.cs" />
+    <Compile Include="Assets\Scripts\Wood.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
