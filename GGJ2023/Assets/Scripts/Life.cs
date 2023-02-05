@@ -12,7 +12,9 @@ public class Life : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        image1.SetActive(true);
+        image2.SetActive(true);
+        image3.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,8 +24,8 @@ public class Life : MonoBehaviour
     }
 
     public void setValue(int value) {
-        image1.SetActive(value > 0);
-        image2.SetActive(value > 1);
-        image3.SetActive(value > 2);
+        image1.SetActive(value > 1);
+        image2.SetActive(value > 2);
+        image3.SetActive(value > 3);
     }
 }
