@@ -73,6 +73,7 @@ public class NokogiriMan : MonoBehaviour
             if (movetimer >= 1.6)
             {
                 moving = true;
+                
                 pos.x = Random.Range(-50,30);
                 movetimer = 0;
             }
@@ -172,7 +173,7 @@ public class NokogiriMan : MonoBehaviour
                 randomfloatmin = Random.Range(30, 50);
                 randomfloatmax = Random.Range(60, 80);
                 nowGauge = 0;
-                
+                gauge = true;
             }
         }
     }
