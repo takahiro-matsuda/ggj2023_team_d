@@ -72,6 +72,9 @@ public class NokogiriMan : MonoBehaviour
     public AudioSource clickGauge;
 
     public AudioSource run;
+
+    public Life life;
+
     // Start is called before the first frame update
     private void OnGUI()
     {
@@ -156,6 +159,7 @@ public class NokogiriMan : MonoBehaviour
                     Debug.Log("失敗");
                     sawmanAnim.SetTrigger("Miss");
                     sawLife--;
+                    life.setValue(sawLife);
                     Invoke("MissCutTree", 0.1f);
                 }
                 //切りすぎの判定
