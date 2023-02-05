@@ -79,10 +79,11 @@ public class NokogiriMan : MonoBehaviour
 
     Wood woodCs;
 
+    public Text normText;
     // Start is called before the first frame update
     private void OnGUI()
     {
-        GUI.Label(new Rect(500, 0, 200, 50), "今回のノルマ:" + norm, textStyle);
+        //GUI.Label(new Rect(500, 100, 50, 50), "今回のノルマ:" + norm, textStyle);
     }
     void Start()
     {
@@ -107,6 +108,7 @@ public class NokogiriMan : MonoBehaviour
         woodCs = wood.GetComponent<Wood>();
         run.Play();
         cutScore = 0;
+        normText.text = "今回のノルマ：" + norm.ToString() + "本";
     }
 
     // Update is called once per frame
