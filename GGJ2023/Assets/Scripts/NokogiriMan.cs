@@ -74,19 +74,13 @@ public class NokogiriMan : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 0;
-            gaugespeed = 0;
-        }
-        if(Time.timeScale <= 0)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
+            if (Time.timeScale != 0) {
+                Time.timeScale = 0;
+                gaugespeed = 0;
+            }
+            else {
                 Time.timeScale = 1;
                 gaugespeed = Random.Range(1.0f, 2.0f);
-            }
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                
             }
         }
         //走っている状態ならば
