@@ -62,6 +62,8 @@
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scenes\Script\MainScene.cs" />
     <Compile Include="Assets\Scripts\NokogiriMan.cs" />
+    <Compile Include="Assets\Scripts\BackGround.cs" />
+    <Compile Include="Assets\Scripts\BackGroundManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

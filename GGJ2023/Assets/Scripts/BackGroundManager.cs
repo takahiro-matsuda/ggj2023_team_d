@@ -19,15 +19,15 @@ public class BackGroundManager : MonoBehaviour
     // 更新処理
     void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.LeftArrow))
-        // {
-        //     value = value + 1;
-        //     if (value > 31) {
-        //         value = 31;
-        //     }
+         if (Input.GetKeyDown(KeyCode.LeftArrow))
+         {
+             value = value + 1;
+            if (value > 31) {
+                value = 31;
+             }
 
-        //     setValue(value);
-        // }
+             setValue(value);
+         }
     }
 
     // 背景値を設定（0〜31指定）

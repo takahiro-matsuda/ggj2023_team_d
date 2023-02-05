@@ -49,7 +49,12 @@ public class NokogiriMan : MonoBehaviour
     //のこぎりマンのライフ
     public int sawLife;
 
+    public GUIStyle textStyle;
     // Start is called before the first frame update
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(50, 50, 200, 50), "残りライフ：" + sawLife, textStyle);
+    }
     void Start()
     {
         //現在のゲージ量
@@ -66,7 +71,8 @@ public class NokogiriMan : MonoBehaviour
         randomfloatmax = Random.Range(60, 80);
         pos.z = -4;
         sawLife = 3;
-        mainsceneCs = canvas.GetComponent<MainScene>();
+        gaugespeed = Random.Range(3.0f, 4.0f);
+        //mainsceneCs = canvas.GetComponent<MainScene>();
     }
 
     // Update is called once per frame
@@ -80,7 +86,7 @@ public class NokogiriMan : MonoBehaviour
             }
             else {
                 Time.timeScale = 1;
-                gaugespeed = Random.Range(1.0f, 2.0f);
+                gaugespeed = Random.Range(3.0f, 4.0f);
             }
         }
         //走っている状態ならば
@@ -136,7 +142,7 @@ public class NokogiriMan : MonoBehaviour
                 //別の関数を少し遅れて呼び出し
                 Invoke("GaugeReset", 0.1f);
                 //木との距離をランダムにするため適当な範囲に移動
-                pos.x = Random.Range(-50, 30);
+                pos.x = Random.Range(-40, 30);
                 //タイマーをリセット
                 movetimer = 0;
             }
@@ -147,7 +153,10 @@ public class NokogiriMan : MonoBehaviour
         //ゲージが動かせる状態ならば
         if (gauge)
         {
-            
+            if (Time.timeScale != 0 && Input.GetKeyDown(KeyCode.Space))
+            {
+                gauge = false;
+            }
         }
     }
     private void FixedUpdate()
@@ -168,7 +177,7 @@ public class NokogiriMan : MonoBehaviour
             {
                 //ゲージが上限まで達したら下がるように
                 maxfloat = true;
-                gaugespeed = Random.Range(1.0f, 2.0f);
+                gaugespeed = Random.Range(3.0f, 4.0f);
             }
             else if (nowGauge <= minGauge)
             {
@@ -193,10 +202,7 @@ public class NokogiriMan : MonoBehaviour
                 //切りすぎの判定
                 sliderimage.color = new Color(0, 1, 1, 1);
             }
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                gauge = false;
-            }
+            
         }
     }
     //ゲージリセット用の関数
