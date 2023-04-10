@@ -56,21 +56,21 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Wood.cs" />
     <Compile Include="Assets\Scenes\Script\BadEndScene.cs" />
     <Compile Include="Assets\Scenes\Script\ResultScene.cs" />
+    <Compile Include="Assets\Scenes\Script\NormOverEnd.cs" />
     <Compile Include="Assets\Scenes\Script\TitleScene.cs" />
+    <Compile Include="Assets\Scripts\Life.cs" />
+    <Compile Include="Assets\Scenes\Script\NoNormEnd.cs" />
+    <Compile Include="Assets\Scenes\Script\RuleScene.cs" />
+    <Compile Include="Assets\Scripts\BackGroundManager.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
+    <Compile Include="Assets\Scripts\BackGround.cs" />
+    <Compile Include="Assets\Scenes\Script\SawBreakEnd.cs" />
     <Compile Include="Assets\Scenes\Script\MainScene.cs" />
     <Compile Include="Assets\Scripts\NokogiriMan.cs" />
-    <Compile Include="Assets\Scripts\BackGround.cs" />
-    <Compile Include="Assets\Scripts\BackGroundManager.cs" />
-    <Compile Include="Assets\Scenes\Script\NoNormEnd.cs" />
     <Compile Include="Assets\Scenes\Script\NormClearEnd.cs" />
-    <Compile Include="Assets\Scenes\Script\NormOverEnd.cs" />
-    <Compile Include="Assets\Scenes\Script\SawBreakEnd.cs" />
-    <Compile Include="Assets\Scenes\Script\RuleScene.cs" />
-    <Compile Include="Assets\Scripts\Life.cs" />
-    <Compile Include="Assets\Scripts\Wood.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
